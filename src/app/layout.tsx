@@ -1,7 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import '../styles/globals.css'
 
 export default (props: {
@@ -9,11 +8,11 @@ export default (props: {
 }) => {
   const pages = ['converter', 'rates']
   const [currentPage, setCurrentPage] = useState(pages[0])
-  const router = useRouter()
+  // const router = useRouter()
 
-  useEffect(() => {
-    router.push('/' + currentPage)
-  }, [])
+  // useEffect(() => {
+  //   router.push('/' + currentPage)
+  // }, [])
 
   return (
     <html lang='en'>
