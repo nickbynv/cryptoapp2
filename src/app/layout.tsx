@@ -1,18 +1,13 @@
 'use client'
 import Link from 'next/link'
-import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import '../styles/globals.css'
 
 export default (props: {
   children: React.ReactNode
 }) => {
-  const pages = ['converter', 'rates']
-  const [currentPage, setCurrentPage] = useState(pages[0])
-  // const router = useRouter()
-
-  // useEffect(() => {
-  //   router.push('/' + currentPage)
-  // }, [])
+  const pages = ['/converter', '/rates']
+  const pathname = usePathname()
 
   return (
     <html lang='en'>
@@ -24,9 +19,8 @@ export default (props: {
           {pages.map(page => (
             <Link
               key={page}
-              href={'/' + page}
-              onClick={() => setCurrentPage(page)}
-              className={`block w-5 h-5 mx-1 ${page === currentPage
+              href={page}
+              className={`block w-5 h-5 mx-1 ${page === pathname
                 ? 'bg-blue-600'
                 : 'bg-blue-200 hover:bg-blue-300'
                 } rounded-full transition-colors`}
