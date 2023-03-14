@@ -20,7 +20,7 @@ export default function Rates(props: {
     })
 
     return (
-        <main className='w-full h-[91%] overflow-auto text-md lg:w-[80%] lg:h-[87%] lg:mt-10 lg:shadow-md lg:rounded-xl'>
+        <main className='w-full h-[91%] overflow-hidden text-md lg:w-[80%] lg:h-[87%] lg:mt-10 lg:shadow-md lg:rounded-xl'>
             <div className='p-3'>
                 <h1 className='mb-8 font-normal text-2xl'>Public watchlist</h1>
 
@@ -31,7 +31,7 @@ export default function Rates(props: {
                 />
             </div>
 
-            <div className='overflow-auto'>
+            <div className='overflow-auto h-full'>
                 <table className='w-full'>
                     <thead>
                         <tr className='text-left border-b border-b-dark-50'>

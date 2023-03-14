@@ -1,7 +1,7 @@
 import Rates from '@/components/Rates'
 import { fetchCurrencies } from '@/services/currencies'
 
-export default async function RatesWrapper() {
+export default async () => {
     const currencies = (await fetchCurrencies()).data
 
     return (

@@ -1,6 +1,6 @@
 'use client'
 import { ICurrency } from '@/entities/currencies'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { FaExchangeAlt } from 'react-icons/fa'
 import SelectionCurrencyMenu from './reusable/SelectionCurrencyMenu'
 
@@ -8,12 +8,6 @@ export default function Converter(props: {
     currencies: ICurrency[]
 }) {
     const [amount, setAmount] = useState(1)
-
-    useEffect(() => {
-        if (amount <= 0) {
-            setAmount(1)
-        }
-    }, [amount])
 
     const [firstCurrency, setFirstCurrency] = useState(props.currencies[0])
     const [secondCurrency, setSecondCurrency] = useState(
@@ -32,7 +26,15 @@ export default function Converter(props: {
                         type='number'
                         min='1'
                         value={amount}
-                        onChange={(e) => setAmount(Number(e.target.value))}
+                        onChange={(e) => {
+                            let value = Number(e.target.value)
+
+                            if (value <= 0) {
+                                value = 1
+                            }
+
+                            setAmount(value)
+                        }}
                     />
                     <span className='font-medium'>Amount</span>
                 </div>

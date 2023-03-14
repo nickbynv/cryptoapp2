@@ -1,4 +1,4 @@
-export default function HomeHead() {
+export default () => {
   return (
     <>
       <title>CryptoApp</title>
